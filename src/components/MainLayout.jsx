@@ -33,9 +33,6 @@ function MainLayout() {
   );
 
   // Effect for Alt+K shortcut
-  // NOTE: The enhanced Header component also has an Alt+K listener.
-  // You might want to keep only one (preferably in Header if it always handles its searchRef).
-  // For now, this won't stop typing, but it's a redundancy.
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.altKey && e.key.toLowerCase() === "k") {
@@ -47,7 +44,7 @@ function MainLayout() {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []); // searchRef itself is stable, so empty dependency array is okay here.
+  }, []);
 
   useEffect(() => {
     if (!isMobileMenuOpen) {
@@ -71,18 +68,11 @@ function MainLayout() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isMobileMenuOpen]); // Removed setIsMobileMenuOpen as it's stable
+  }, [isMobileMenuOpen]);
 
   if (isPlainPage) {
     return <Outlet />;
   }
-
-  // --- Add click handlers for other Header icons if you plan to use them ---
-  // const handleQuickLaunch = () => console.log("Quick Launch from MainLayout");
-  // const handleSettings = () => console.log("Settings from MainLayout");
-  // const handleHelp = () => console.log("Help from MainLayout");
-  // const handleUserAvatar = () => console.log("User Avatar from MainLayout");
-  // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
   return (
     <div
@@ -93,17 +83,8 @@ function MainLayout() {
         searchRef={searchRef}
         toggleSidebar={toggleSidebar}
         toggleButtonRef={toggleButtonRef}
-        // --- Pass the new props for search ---
         searchTerm={searchTerm}
         onSearchChange={handleSearchChange}
-        // --- --- --- --- --- --- --- --- --- ---
-
-        // --- Optionally pass handlers for other new icon functionalities ---
-        // onQuickLaunchClick={handleQuickLaunch}
-        // onSettingsClick={handleSettings}
-        // onHelpClick={handleHelp}
-        // onUserAvatarClick={handleUserAvatar}
-        // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
       />
       <div className="row g-0 flex-grow-1" style={{ overflow: "hidden" }}>
         <Sidebar
@@ -116,9 +97,10 @@ function MainLayout() {
         >
           <TopNav />
           <div className="p-4 flex-grow-1" style={{ overflowY: "auto" }}>
+            <div className="alert alert-info mb-4">
+              Go to the Documents.
+            </div>
             <Outlet />
-            {/* You can display the search term here for debugging if you like */}
-            {/* <p>Current search: {searchTerm}</p> */}
           </div>
         </div>
       </div>
