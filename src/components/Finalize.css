@@ -1,0 +1,277 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+}
+
+.finalize-page-container {
+  padding: 20px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.finalize-header-bar h1 {
+  font-size: 1.75rem;
+}
+
+.finalize-stepper-actions-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.finalize-stepper-container {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.finalize-stepper-button {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.25rem;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.finalize-stepper-number,
+.finalize-stepper-label {
+  transition: all 0.3s ease;
+}
+
+.finalize-action-buttons {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.finalize-action-buttons .btn,
+.finalize-action-buttons a > .btn {
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.finalize-main-content {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 1rem;
+  min-height: calc(100vh - 220px);
+}
+
+.finalize-document-preview-wrapper {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+.finalize-document-a4 {
+  width: 210mm;
+  min-height: 200mm;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  font-size: 12pt;
+  line-height: 1.5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  max-width: 100%;
+}
+
+.right-sidebar-container {
+  width: 300px;
+  flex-shrink: 0;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+}
+
+@media (max-width: 992px) {
+  .finalize-page-container {
+    padding: 15px;
+  }
+  .finalize-header-bar h1 {
+    font-size: 1.5rem;
+  }
+  .finalize-main-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .finalize-document-preview-wrapper {
+    padding: 15px;
+    order: 1;
+    width: 100%;
+  }
+  .finalize-document-a4 {
+    padding: 20px 25px;
+    font-size: 10pt;
+    width: 100%;
+    min-height: auto;
+    max-width: 100%;
+  }
+  .right-sidebar-container {
+    width: 100%;
+    order: 2;
+    max-height: 40vh;
+  }
+  .finalize-stepper-container {
+    gap: 0.75rem !important;
+  }
+  .finalize-stepper-number {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 13px !important;
+  }
+  .finalize-stepper-label {
+    font-size: 13px !important;
+  }
+  .finalize-action-buttons .btn,
+  .finalize-action-buttons a > .btn {
+    padding: 0.45rem 0.9rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .finalize-stepper-actions-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .finalize-stepper-container {
+    justify-content: center !important;
+    overflow-x: auto !important;
+    width: 100%;
+    gap: 0.5rem !important;
+    padding-bottom: 8px;
+    flex-grow: 0 !important;
+  }
+  .finalize-stepper-number {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 12px !important;
+  }
+  .finalize-stepper-label {
+    font-size: 11px !important;
+    display: inline !important;
+    white-space: nowrap;
+  }
+  .finalize-stepper-button {
+    gap: 3px !important;
+    padding: 0.25rem 0.1rem !important;
+  }
+  .finalize-action-buttons {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: 100%;
+    justify-content: space-around;
+    gap: 8px;
+  }
+  .finalize-action-buttons .btn,
+  .finalize-action-buttons a > .btn {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    min-width: 55px;
+    font-size: 12px !important;
+    padding: 6px 4px !important;
+    text-align: center;
+    width: auto !important;
+    margin: 0;
+  }
+  .finalize-document-preview-wrapper {
+    padding: 10px;
+  }
+  .finalize-document-a4 {
+    padding: 15px;
+    font-size: 9pt;
+  }
+}
+
+@media (max-width: 576px) {
+  .finalize-page-container {
+    padding: 10px;
+  }
+  .finalize-header-bar {
+    padding: 12px;
+  }
+  .finalize-header-bar h1 {
+    font-size: 1.25rem;
+  }
+  .finalize-document-a4 {
+    font-size: 8pt;
+    padding: 10px;
+  }
+  .finalize-stepper-actions-bar {
+    padding: 10px;
+  }
+  .finalize-stepper-container {
+    gap: 0.5rem !important;
+  }
+  .finalize-stepper-button {
+    gap: 2px !important;
+  }
+  .finalize-stepper-number {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 10px !important;
+  }
+  .finalize-stepper-label {
+    font-size: 10px !important;
+  }
+  .finalize-action-buttons {
+    gap: 6px !important;
+  }
+  .finalize-action-buttons .btn,
+  .finalize-action-buttons a > .btn {
+    min-width: 45px;
+    font-size: 11px !important;
+    padding: 5px 3px !important;
+    margin: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .finalize-stepper-label {
+    font-size: 9px !important;
+  }
+  .finalize-stepper-container {
+    gap: 0.75rem !important;
+  }
+  .finalize-stepper-number {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 11px !important;
+  }
+  .finalize-action-buttons .btn,
+  .finalize-action-buttons a > .btn {
+    min-width: 40px;
+    font-size: 10px !important;
+    padding: 4px 2px !important;
+  }
+}

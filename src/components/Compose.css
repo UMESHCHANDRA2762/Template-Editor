@@ -1,0 +1,465 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: #f8f9fa;
+}
+
+.compose-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.compose-header-bar h1 {
+  font-size: 1.75rem;
+}
+
+.sidebar-toggle-button {
+  display: none;
+  font-size: 1.5rem;
+  color: #343a40;
+  background: none;
+  border: none;
+}
+.sidebar-toggle-button:focus {
+  box-shadow: none;
+}
+
+.compose-stepper-actions-bar {
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.compose-stepper-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+  min-width: 0;
+  display: flex;
+  gap: 1rem;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.compose-stepper-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: transparent !important;
+  border: none !important;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.25rem;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.compose-stepper-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  transition: width 0.3s ease, height 0.3s ease, font-size 0.3s ease,
+    background-color 0.3s ease, color 0.3s ease;
+}
+
+.compose-stepper-label {
+  font-size: 14px;
+  transition: font-size 0.3s ease, display 0.3s ease;
+}
+
+.compose-action-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.compose-action-buttons .btn {
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: padding 0.3s ease, font-size 0.3s ease, width 0.3s ease;
+  margin-bottom: 0;
+}
+
+.compose-main-layout {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.compose-left-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background-color: #fff;
+  border-right: 1px solid #dee2e6;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.compose-content-right-wrapper {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.compose-main-content-area {
+  flex-grow: 1;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.compose-right-sidebar-wrapper {
+  width: 300px;
+  flex-shrink: 0;
+  background-color: #fff;
+  border-left: 1px solid #dee2e6;
+  overflow-y: auto;
+  padding: 15px;
+  transition: opacity 0.3s ease, width 0.3s ease, padding 0.3s ease;
+}
+
+@media (max-width: 992px) {
+  .compose-page-container {
+    padding: 10px;
+  }
+  .compose-header-bar h1 {
+    font-size: 1.5rem;
+  }
+  .compose-header-bar .p-4 {
+    padding: 0.75rem 1rem !important;
+  }
+  .sidebar-toggle-button {
+    display: inline-block;
+  }
+  .compose-left-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  .compose-left-sidebar.open {
+    transform: translateX(0);
+  }
+  .compose-right-sidebar-wrapper {
+    display: none;
+  }
+  .compose-stepper-container {
+    gap: 0.75rem !important;
+  }
+  .compose-stepper-label {
+    font-size: 13px !important;
+  }
+  .compose-stepper-number {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 13px !important;
+  }
+  .compose-action-buttons {
+    margin-top: 0.5rem;
+  }
+  .compose-action-buttons .btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .compose-stepper-actions-bar {
+    gap: 0.5rem;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .compose-stepper-container {
+    order: 1;
+    width: 100%;
+    gap: 0.5rem !important;
+    justify-content: flex-start !important;
+  }
+  .compose-stepper-number {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 12px !important;
+  }
+  .compose-stepper-label {
+    font-size: 11px !important;
+  }
+  .compose-action-buttons {
+    order: 2;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .compose-action-buttons .btn {
+    flex-grow: 1;
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .compose-page-container {
+    padding: 5px;
+  }
+  .compose-header-bar .p-4 {
+    padding: 0.5rem 0.75rem !important;
+  }
+  .compose-header-bar h1 {
+    font-size: 1.25rem;
+  }
+  .compose-stepper-actions-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem !important;
+    padding: 10px !important;
+  }
+  .compose-stepper-container {
+    justify-content: space-around !important;
+    gap: 0.25rem !important;
+    padding-bottom: 0;
+    overflow-x: visible;
+  }
+  .compose-stepper-label {
+    font-size: 10px !important;
+  }
+  .compose-stepper-number {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 10px !important;
+  }
+  .compose-stepper-button {
+    gap: 3px !important;
+  }
+  .compose-action-buttons {
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  .compose-action-buttons .btn {
+    width: 100% !important;
+    margin: 0;
+    font-size: 14px !important;
+    padding: 10px 12px !important;
+  }
+  .compose-left-sidebar {
+    width: 250px;
+  }
+  .compose-main-content-area.p-3.p-md-4,
+  .compose-main-content-area .p-4 {
+    padding: 10px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .compose-stepper-label {
+    display: none !important;
+  }
+  .compose-stepper-container {
+    gap: 0.5rem !important;
+    justify-content: center !important;
+  }
+  .compose-stepper-number {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 12px !important;
+  }
+  .compose-stepper-button {
+    padding: 0.25rem !important;
+  }
+  .compose-action-buttons .btn {
+    padding: 0.65rem 0.5rem !important;
+    font-size: 13px !important;
+  }
+}
+
+.compose-main-content-area .ql-editor {
+  min-height: 300px;
+  font-size: 1rem;
+}
+
+.compose-main-content-area .ql-container {
+  border-radius: 0 0 4px 4px;
+}
+
+.compose-main-content-area .ql-toolbar {
+  border-radius: 4px 4px 0 0;
+  background-color: #f8f9fa;
+}
+/* Compose.css */
+
+/* ... (Keep all your existing styles up to this point) ... */
+
+@media (max-width: 768px) {
+  /* ... existing styles ... */
+  .compose-stepper-label {
+    font-size: 11px !important;
+    display: inline !important;
+  }
+  /* ... existing styles ... */
+}
+
+@media (max-width: 576px) {
+  /* ... existing styles for .compose-stepper-actions-bar etc. ... */
+
+  .compose-stepper-container {
+    /* MODIFIED: Changed from flex-start back to center */
+    justify-content: center !important; /* Ensures items are centered */
+    gap: 0.75rem !important; /* From previous fix for visible labels */
+    padding-bottom: 8px; /* From previous fix for scrollbar space */
+    overflow-x: auto !important; /* From previous fix, enables horizontal scrolling */
+    width: 100%;
+    display: flex; /* Ensure flex properties apply */
+  }
+
+  .compose-stepper-label {
+    font-size: 10px !important;
+    display: inline !important;
+    white-space: nowrap;
+  }
+  /* ... other existing styles for .compose-stepper-number, .compose-stepper-button from previous fix ... */
+  .compose-stepper-number {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 12px !important;
+  }
+  .compose-stepper-button {
+    gap: 4px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .compose-stepper-container {
+    /* MODIFIED: Changed from flex-start back to center */
+    justify-content: center !important; /* Ensures items are centered */
+    gap: 0.5rem !important; /* From previous fix for visible labels */
+    /* overflow-x: auto !important; is inherited */
+    /* width: 100%; is inherited */
+    display: flex; /* Ensure flex properties apply */
+  }
+
+  .compose-stepper-label {
+    display: inline !important;
+    font-size: 9px !important;
+    white-space: nowrap;
+  }
+  /* ... other existing styles for .compose-stepper-number, .compose-stepper-button from previous fix ... */
+  .compose-stepper-number {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 10px !important;
+  }
+  .compose-stepper-button {
+    padding: 0.25rem 0.1rem !important;
+    gap: 3px !important;
+  }
+}
+
+/* ... (Rest of your existing Compose.css styles) ... */
+/* In Compose.css */
+
+/* ... keep your existing styles ... */
+
+/* --- Styles for Action Buttons --- */
+
+/* Default styles for .compose-action-buttons (from your existing CSS or Bootstrap classes) */
+/* For context, it might have: display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: flex-end; */
+.compose-action-buttons {
+  display: flex; /* Base */
+  /* gap, flex-wrap, justify-content are likely set by Bootstrap classes in your JSX */
+  /* flex-shrink: 0; /* This was in your original CSS for the container */
+}
+
+/* Default styles for buttons inside .compose-action-buttons */
+.compose-action-buttons .btn {
+  font-weight: 600; /* Existing */
+  /* padding: 0.5rem 1.25rem;       Original default padding */
+  /* font-size: 0.9rem;             Original default font-size */
+  white-space: nowrap; /* Existing */
+  margin-bottom: 0; /* Existing */
+}
+
+/* --- Media Queries for Responsive Action Buttons --- */
+
+@media (max-width: 992px) {
+  .compose-action-buttons {
+    margin-top: 0.5rem; /* Existing adjustment */
+  }
+  .compose-action-buttons .btn {
+    padding: 0.45rem 0.9rem !important; /* SLIGHTLY SMALLER than original 0.5rem 1rem */
+    font-size: 0.8rem !important; /* SLIGHTLY SMALLER than original 0.85rem */
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .compose-action-buttons {
+    order: 2; /* Existing placement */
+    width: 100%; /* Takes full width in its context */
+    display: flex; /* Ensure flex behavior */
+    flex-direction: row !important; /* **IN SEQUENCE (ROW)** - Overrides any column stacking */
+    flex-wrap: nowrap !important; /* **IN SEQUENCE** - Prevents buttons from wrapping to a new line */
+    justify-content: space-around; /* Distributes buttons. Options: space-evenly, space-between */
+    gap: 6px; /* **SMALLER** - Reduced gap between buttons */
+    margin-top: 0.5rem; /* Consistent margin */
+  }
+
+  .compose-action-buttons .btn {
+    flex-grow: 1; /* Distribute space among buttons */
+    flex-shrink: 1; /* Allow buttons to shrink if space is tight */
+    flex-basis: 0; /* Base size for flex distribution */
+    min-width: 50px; /* **SMALLER** - Prevent buttons from becoming too tiny (adjust as needed) */
+
+    font-size: 12px !important; /* **SMALLER** - Reduced font size */
+    padding: 6px 4px !important; /* **SMALLER** - Significantly reduced vertical and horizontal padding */
+
+    white-space: nowrap; /* Keep text on one line */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Show "..." for text that's cut off */
+    text-align: center; /* Center text within the button */
+    width: auto !important; /* Let flex properties control width, override fixed widths */
+  }
+}
+
+@media (max-width: 576px) {
+  /* .compose-action-buttons inherits row layout from 768px */
+  .compose-action-buttons {
+    gap: 5px !important; /* **SMALLER** - Further reduced gap */
+  }
+
+  .compose-action-buttons .btn {
+    /* Inherits flex behavior, text overflow, etc. from 768px */
+    font-size: 11px !important; /* **SMALLER** - Further reduced font size */
+    padding: 5px 3px !important; /* **SMALLER** - Further reduced padding */
+    min-width: 45px; /* **SMALLER** - Adjusted min-width */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Added a more granular breakpoint for very small screens */
+  .compose-action-buttons {
+    gap: 4px !important; /* **SMALLER** - Even smaller gap */
+  }
+
+  .compose-action-buttons .btn {
+    /* Inherits flex behavior, text overflow, etc. */
+    font-size: 10px !important; /* **SMALLER** - Tiny font size */
+    padding: 4px 2px !important; /* **SMALLER** - Tiny padding */
+    min-width: 40px; /* **SMALLER** - Adjusted min-width */
+  }
+}
+
+/* ... rest of your existing Compose.css ... */

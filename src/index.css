@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+/* Global styles */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  background-color: white;
+  color: black;
+  padding: 16px;
+}
+
+.header-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Step Navigation Styles */
+.step-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: #f8f9fa;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.step-buttons {
+  display: flex;
+  gap: 16px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.step-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.step-button.active {
+  color: #fff;
+  background-color: #4b0082;
+  border: 2px solid #4b0082;
+}
+
+.step-button.inactive {
+  color: #aaa;
+}
+
+.step-button-circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #4b0082;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid #4b0082;
+}
+
+.step-button-circle.active-circle {
+  background-color: #4b0082;
+  color: #fff;
+}
+
+.step-button-label {
+  font-weight: normal;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.btn-cancel,
+.btn-continue {
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: transparent;
+  border: 2px solid #4b0082;
+  color: #4b0082;
+}
+
+.btn-continue {
+  background-color: #4b0082;
+  color: #fff;
+  border: none;
+}
+
+/* Main Content Styles */
+.main-content {
+  display: flex;
+  height: calc(100vh - 112px);
+  margin: 0;
+}
+
+.sidebar {
+  width: 300px;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  padding: 10px 16px;
+  z-index: 1;
+}
+
+.editor-area {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+/* Ensure no internal borders inside React Quill editor */
+.ql-container,
+.ql-editor {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: transparent !important;
+}
+
+/* Optional: Add padding to the editor */
+.ql-editor {
+  padding: 0 !important; /* Adjust if you want more space */
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Optional: If you're adding a custom toolbar */
+.ql-toolbar.ql-snow {
+  border: none !important;
+  background: transparent !important;
+}
+/* Custom dropdown styles */
+.custom-dropdown {
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.custom-dropdown:focus {
+  outline: none;
+}
+
+/* Label text beside the dropdown */
+.dropdown {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.dropdown-label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+.ql-editor .placeholder {
+  background-color: lightblue;
+  color: #000;
+  border-radius: 3px;
+  padding: 2px 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ql-editor .placeholder::after {
+  content: "✔";
+  font-size: 14px;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+.custom-button {
+  background-color: white;
+  border: 1px solid #ced4da;
+  color: #333;
+  transition: background-color 0.3s ease;
+  margin-top: 6px;
+}
+
+.custom-button:hover {
+  background-color: rgba(128, 0, 128, 0.1); /* light transparent purple */
+  color: #333;
+}
+/* Add this CSS to your styles */
+.blue-box-text {
+  background-color: #e0f7fa; /* Light blue */
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+}
+/* Custom class for inserted text */
+/* Add this to your index.css or appropriate stylesheet */
+.custom-inserted-text {
+  background-color: #e0f7fa; /* Light blue */
+  padding: 5px 10px; /* Apply padding */
+  margin-right: 16px; /* Optional: right margin */
+  border-radius: 4px; /* Optional: rounded corners */
+  display: inline-block; /* Ensure it's inline-block */
+}
+/* Custom styles for the header and side menu */
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background-color: purple;
+  height: 250px; /* Adjust the height as per your image */
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header-image {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+}
+
+.side-menu {
+  position: absolute;
+  bottom: 10px; /* Adjust this for the distance from the bottom of the header image */
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.side-menu button {
+  background-color: #6c757d;
+  color: white;
+  padding: 10px;
+}
+.create-template-btn {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 5px;
+  padding: 6px 16px;
+  font-weight: 500;
+  border: 1px solid black;
+  transition: background-color 0.3s ease;
+}
+
+.create-template-btn:hover {
+  background-color: rgba(75, 0, 130, 0.1);
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Default styles for small screens */
+.container {
+  width: 100%;
+  padding: 10px;
+}
+
+/* Medium screens */
+@media (min-width: 768px) {
+  .container {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+@media (max-width: 767px) {
+  .sidebar-content {
+    display: none; /* Hide the sidebar on small screens */
+  }
+  .container-fluid {
+    padding-left: 0;
+  }
+}
+/* Custom styles for responsive search bar */
+@media (max-width: 768px) {
+  .form-control {
+    width: 250px; /* Adjust width for mobile */
+  }
+}
+/* SetUp.css */
+
+@media (max-width: 768px) {
+  .responsive-wrapper {
+    width: 100% !important;
+  }
+
+  .responsive-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100%;
+  }
+
+  .responsive-actions .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .responsive-actions .btn {
+    padding-left: 8px !important; /* smaller horizontal padding */
+    padding-right: 8px !important;
+    font-size: 0.85rem !important; /* slightly smaller text */
+    min-width: 90px; /* maintain some width */
+  }
+}
+body {
+  font-family: "Poppins", sans-serif;
+}

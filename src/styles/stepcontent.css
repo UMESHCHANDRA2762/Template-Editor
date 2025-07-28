@@ -1,0 +1,56 @@
+/* Add this CSS to your project (e.g., index.css or Compose.css) */
+
+.ai-correct-button {
+  display: inline-flex; /* Use inline-flex for better alignment of spinner and text */
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  min-width: 80px; /* Adjust as needed */
+}
+
+.ai-correct-button:hover {
+  color: #000;
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+}
+
+.ai-correct-button:active {
+  color: #000;
+  background-color: #d3d9df;
+  border-color: #c6cdd4;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+
+.ai-correct-button:disabled,
+.ai-correct-button.disabled {
+  color: #6c757d;
+  background-color: #f8f9fa;
+  border-color: #ced4da;
+  opacity: 0.65;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Styles for Bootstrap spinner if you keep it */
+.ai-correct-button .spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.2em;
+  /* vertical-align: -0.125em; /* This was in previous, adjust as needed */
+}
